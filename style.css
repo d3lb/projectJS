@@ -1,0 +1,226 @@
+@font-face {
+  font-family: 'noto';
+  src: url('./fonts/NotoSans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  font-family: 'NotoSans', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'noto';
+  color: aliceblue;
+  background-color: #333;
+}
+header {
+  display: flex;
+  justify-content: center;
+}
+header h1 {
+  font-size: 50px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+article {
+  padding: 10px;
+  height: 100%;
+  width: 65%;
+  border: 2px rgb(61, 61, 61) solid;
+  border-radius: 10px;
+  background-color: rgb(73, 73, 73);
+}
+
+#top{
+    display: flex;
+    justify-content: space-between;
+}
+#searchBar {
+  border: 1px #333 solid;
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+}
+.search-wrapper {
+  position: relative;
+  width: 250px;
+}
+
+#searchIcon {
+  position: absolute;
+  top: 50%;
+  transform: translate(-30px, -50%);
+  width: 20px;
+}
+
+.main-buttons{
+  padding: 20px;
+}
+
+.main-buttons button { 
+  background: none;
+  border: none;
+  margin-left: 5px;
+}
+
+.main-buttons img {
+  width: 25px;
+  height: 25px;
+}
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-top: 20px;
+}
+.profile-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+.profile {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #818181;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-info img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px #ccc solid;
+}
+
+.info-buttons button {
+  background: none;
+  border: none;
+  margin-left: 5px;
+}
+
+.info-buttons img {
+  width: 25px;
+  height: 25px;
+}
+footer {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+}
+
+
+
+/*- Modals -*/
+#info {
+  display: none;
+}
+
+#edit {
+  display: none;
+}
+
+#add {
+  display: none;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.profile-form label {
+  text-align: left;
+  font-weight: bold;
+}
+
+.profile-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  margin: 20px auto;
+  padding: 12px 30px;
+  background-color: #2575fc;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+}
+
+.submit-button:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+}
+
+
+.popUp {
+  display: flex;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preContent {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUp-content {
+  position: relative;
+  border: 1px solid rgb(202, 202, 202);
+  background-color: gray;
+  border-radius: 5px;
+  height: fit-content;
+  width: 600px;
+  padding: 20px;
+}
+
+.popUp-content h2 p{
+  margin: 10px;
+}
+
+#close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: red;
+}
+
+#close:hover {
+  background-color: rgb(168, 0, 0);
+}

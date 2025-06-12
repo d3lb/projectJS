@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Phone Book</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Phone Book</h1>
+  </header>
+
+  <main>
+    <article>
+      <section id="top">
+        <div>
+            <div>
+              <p>3 People</p>
+            </div>
+            <div class="search-wrapper">
+              <input type="text" id="searchBar" placeholder="Search...">
+              <img src="./images/icons/magnifier.png" alt="icon" id="searchIcon" />
+            </div>
+        </div>
+        <div class="main-buttons">
+          <button><img src="./images/icons/add.png" alt=""></button>
+          <button><img src="./images/icons/delete.png" alt=""></button>
+        </div>
+      </section>
+      <section>
+        <ol class="profile-container">
+          <li>
+            <div class="profile">
+              <div class="profile-info">
+                <img src="./images/profilePics/undertaker.jpg" alt="undertaker">
+                <p>Bob</p>
+              </div>
+              <div class="info-buttons">
+                <button><img src="./images/icons/info.png" alt=""></button>
+                <button><img src="./images/icons/edit.png" alt=""></button>
+                <button><img src="./images/icons/delete.png" alt=""></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="profile">
+              <div class="profile-info">
+                <img src="./images/profilePics/undertaker.jpg" alt="undertaker">
+                <p>Not Bob</p>
+              </div>
+              <div class="info-buttons">
+                <button><img src="./images/icons/info.png" alt=""></button>
+                <button><img src="./images/icons/edit.png" alt=""></button>
+                <button><img src="./images/icons/delete.png" alt=""></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="profile">
+              <div class="profile-info">
+                <img src="./images/profilePics/undertaker.jpg" alt="undertaker">
+                <p>Real Bob</p>
+              </div>
+              <div class="info-buttons">
+                <button><img src="./images/icons/info.png" alt=""></button>
+                <button><img src="./images/icons/edit.png" alt=""></button>
+                <button><img src="./images/icons/delete.png" alt=""></button>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>Copyrights Nael & Hamza 2025</p>
+  </footer>
+
+
+  <!-- Info Modal -->
+  <div id="info" class="popUp">
+    <div class="preContent">
+      <div class="popUp-content">
+        <button id="close" onclick="popUp(1)">X</button>
+        <h2>Info</h2>
+        <p>Name: </p>
+        <p>Age: </p>
+        <p>Telephone: </p>
+        <p>Address: </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="edit" class="popUp">
+    <div class="preContent">
+      <div class="popUp-content">
+        <button id="close" onclick="popUp(1)">X</button>
+        <h2>Edit</h2>
+        <form class="profile-form">
+            <label>Name: </label>
+            <input type="text">
+            
+            <label>Age: </label>
+            <input type="text">
+            
+            <label>Telephone: </label>
+            <input type="text">
+            
+            <label>Address: </label>
+            <input type="text">
+
+            <label>Image URL: </label>
+            <input type="text">
+
+            <button class="submit-button">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <!-- Add Modal -->
+    <div id="add" class="popUp">
+      <div class="preContent">
+        <div class="popUp-content">
+          <button id="close" onclick="popUp(1)">X</button>
+          <h2>Add Person</h2>
+          <form class="profile-form">
+            <label>Name: </label>
+            <input type="text">
+    
+            <label>Age: </label>
+            <input type="text">
+    
+            <label>Telephone: </label>
+            <input type="text">
+    
+            <label>Address: </label>
+            <input type="text">
+    
+            <label>Image URL: </label>
+            <input type="text">
+    
+            <button class="submit-button">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+</body>
+
+</html>
