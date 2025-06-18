@@ -22,56 +22,24 @@
               <p>3 People</p>
             </div>
             <div class="search-wrapper">
+              <div id="search-icon">
+                <img src="./images/icons/magnifier.png" alt="icon"/>
+              </div>
+              <div>
               <input type="text" id="searchBar" placeholder="Search...">
-              <img src="./images/icons/magnifier.png" alt="icon" id="searchIcon" />
+              </div>
             </div>
         </div>
         <div class="main-buttons">
-          <button><img src="./images/icons/add.png" alt=""></button>
-          <button><img src="./images/icons/delete.png" alt=""></button>
+          <button><img src="./images/icons/add.png" alt="Add"></button>
+          <button id="deleteAllBtn"><img src="./images/icons/delete.png" alt="Delete All"></button>
         </div>
       </section>
       <section>
-        <ol class="profile-container">
-          <li>
-            <div class="profile">
-              <div class="profile-info">
-                <img src="./images/profilePics/undertaker.jpg" alt="undertaker">
-                <p>Bob</p>
-              </div>
-              <div class="info-buttons">
-                <button><img src="./images/icons/info.png" alt=""></button>
-                <button><img src="./images/icons/edit.png" alt=""></button>
-                <button><img src="./images/icons/delete.png" alt=""></button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="profile">
-              <div class="profile-info">
-                <img src="./images/profilePics/undertaker.jpg" alt="undertaker">
-                <p>Not Bob</p>
-              </div>
-              <div class="info-buttons">
-                <button><img src="./images/icons/info.png" alt=""></button>
-                <button><img src="./images/icons/edit.png" alt=""></button>
-                <button><img src="./images/icons/delete.png" alt=""></button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="profile">
-              <div class="profile-info">
-                <img src="./images/profilePics/undertaker.jpg" alt="undertaker">
-                <p>Real Bob</p>
-              </div>
-              <div class="info-buttons">
-                <button><img src="./images/icons/info.png" alt=""></button>
-                <button><img src="./images/icons/edit.png" alt=""></button>
-                <button><img src="./images/icons/delete.png" alt=""></button>
-              </div>
-            </div>
-          </li>
+        <ol id="contactsList">
+          
+           <!-- Contacts will appear here -->
+
         </ol>
       </section>
     </article>
@@ -103,7 +71,7 @@
       <div class="popUp-content">
         <button id="close" onclick="popUp(1)">X</button>
         <h2>Edit</h2>
-        <form class="profile-form">
+        <form class="contacts-form">
             <label>Name: </label>
             <input type="text">
             
@@ -131,7 +99,7 @@
         <div class="popUp-content">
           <button id="close" onclick="popUp(1)">X</button>
           <h2>Add Person</h2>
-          <form class="profile-form">
+          <form class="contacts-form">
             <label>Name: </label>
             <input type="text">
     
@@ -153,7 +121,7 @@
       </div>
     </div>
 
-
+    <script src="script.js"></script>
 </body>
 
 </html>

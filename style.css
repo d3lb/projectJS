@@ -17,8 +17,8 @@ body {
 
 body {
   font-family: 'noto';
-  color: aliceblue;
-  background-color: #333;
+  color: #E0E0E0;
+  background-color: #1d1f20;
 }
 header {
   display: flex;
@@ -38,7 +38,7 @@ article {
   width: 65%;
   border: 2px rgb(61, 61, 61) solid;
   border-radius: 10px;
-  background-color: rgb(73, 73, 73);
+  background-color: #292d30;
 }
 
 #top{
@@ -47,20 +47,37 @@ article {
 }
 #searchBar {
   border: 1px #333 solid;
-  border-radius: 5px;
+  border-left: 0;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
   height: 30px;
   width: 200px;
 }
+#searchBar:focus {
+  outline: none;
+}
+#searchBar::placeholder {
+  font-weight: bold;
+}
 .search-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
   position: relative;
   width: 250px;
 }
-
-#searchIcon {
+#search-icon {
+  width: 30px;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 1px #333 solid;
+  border-right: 0;
+}
+#search-icon img {
   position: absolute;
   top: 50%;
-  transform: translate(-30px, -50%);
-  width: 20px;
+  transform: translate(5px, -50%);
+  width: 17px;
 }
 
 .main-buttons{
@@ -75,8 +92,8 @@ article {
 
 .main-buttons img {
   width: 25px;
-  height: 25px;
 }
+
 
 ol,
 ul,
@@ -86,27 +103,27 @@ li {
   list-style: none;
   padding-top: 20px;
 }
-.profile-container{
+#contactsList{
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 10px;
 }
-.profile {
+.contacts {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #818181;
+  border-bottom: 1px solid #585858;
 }
 
-.profile-info {
+.contacts-info {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.profile-info img {
+.contacts-info img {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -121,14 +138,29 @@ li {
 
 .info-buttons img {
   width: 25px;
-  height: 25px;
 }
 footer {
   padding-top: 10px;
   display: flex;
   justify-content: center;
   font-size: 15px;
+  color: #A0A0A0;
 }
+
+/* Buttons effects */
+
+.info-buttons button:hover img,
+.main-buttons button:hover img {
+  filter: brightness(0.7);
+  transition: transform 0.1s ease, filter 0.1s ease;
+  cursor: pointer;
+}
+
+.info-buttons button:active img,
+.main-buttons button:active img {
+  transform: scale(0.9);
+}
+
 
 
 
@@ -145,7 +177,7 @@ footer {
   display: none;
 }
 
-.profile-form {
+.contacts-form {
   display: grid;
   grid-template-columns: 150px 1fr;
   gap: 10px 20px;
@@ -153,18 +185,18 @@ footer {
   margin-top: 20px;
 }
 
-.profile-form label {
+.contacts-form label {
   text-align: left;
   font-weight: bold;
 }
 
-.profile-form input {
+.contacts-form input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.submit-button {
+.contacts-button {
   margin: 20px auto;
   padding: 12px 30px;
   background-color: #2575fc;
