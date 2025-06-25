@@ -232,8 +232,8 @@ footer {
 
 .popUp-content {
   position: relative;
-  border: 1px solid rgb(202, 202, 202);
-  background-color: gray;
+  border: 1px solid #585858;
+  background-color: #292d30;
   border-radius: 5px;
   height: fit-content;
   width: 600px;
@@ -255,4 +255,17 @@ footer {
 
 #close:hover {
   background-color: rgb(168, 0, 0);
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+}
+.pic img{
+  width: 150px;
+  border: 2px solid #252525;
+  border-radius: 5px;
+}
+.text{
+  padding-left: 25px;
 }
