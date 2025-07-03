@@ -19,7 +19,7 @@
       <section id="top">
         <div>
             <div>
-              <p>3 People</p>
+              <p id="peopleCount"><!-- X People --></p>
             </div>
             <div class="search-wrapper">
               <div id="search-icon">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="main-buttons">
-          <button><img src="./images/icons/add.png" alt="Add"></button>
+          <button id="addPersonBtn"><img src="./images/icons/add.png" alt="Add"></button>
           <button id="deleteAllBtn"><img src="./images/icons/delete.png" alt="Delete All"></button>
         </div>
       </section>
@@ -55,10 +55,10 @@
   <div id="info" class="popUp">
     <div class="preContent">
       <div class="popUp-content">
-        <button id="close">X</button>
+        <button id="close">×</button>
         <h2>Info</h2>
         <div class="content">
-          <div class="pic">
+          <div class="picDiv">
             <img src="">
           </div>
           <div class="text">
@@ -76,7 +76,7 @@
   <div id="edit" class="popUp">
     <div class="preContent">
       <div class="popUp-content">
-        <button id="close">X</button>
+        <button id="close">×</button>
         <h2>Edit</h2>
         <form class="contacts-form">
             <label>Name: </label>
@@ -104,24 +104,32 @@
     <div id="add" class="popUp">
       <div class="preContent">
         <div class="popUp-content">
-          <button id="close">X</button>
+          <button id="close">×</button>
           <h2>Add Person</h2>
           <form class="contacts-form">
-            <label>Name: </label>
-            <input type="text">
-    
-            <label>Age: </label>
-            <input type="text">
-    
-            <label>Telephone: </label>
-            <input type="text">
-    
-            <label>Address: </label>
-            <input type="text">
-    
-            <label>Image URL: </label>
-            <input type="text">
-    
+            <div>
+              <label>Name: <span style="color: red;">*</span></label>
+              <input type="text" id="addName" class="name">
+            </div>
+            <div>
+              <label>Telephone: <span style="color: red;">*</span></label>
+              <input type="text" id="addPhone" class="phone">
+            </div>
+            <div>
+              <label>Age: </label>
+              <input type="text" id="addAge" class="age">
+            </div>
+            <div>
+              <label>Address: </label>
+              <input type="text" id="addAddress" class="address">
+            </div>
+            <div>
+              <label>Image URL: </label>
+              <input type="text" id="addPic" class="pic">
+            </div>
+
+            <p id="addError" style="color: red;"><!-- Error Msg --></p>
+
             <button class="submit-button">Save</button>
           </form>
         </div>
