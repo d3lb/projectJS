@@ -15,15 +15,15 @@
   </header>
 
   <main>
-    <article>
-      <section id="top">
+    <div id="main">
+      <div id="top">
         <div>
             <div>
               <p id="peopleCount"><!-- X People --></p>
             </div>
             <div class="search-wrapper">
               <div id="search-icon">
-                <img src="./images/icons/magnifier.png" alt="icon"/>
+                <img src="./images/icons/magnifier.png" alt="icon">
               </div>
               <div>
               <input type="text" id="searchBar" placeholder="Search...">
@@ -34,15 +34,15 @@
           <button id="addPersonBtn"><img src="./images/icons/add.png" alt="Add"></button>
           <button id="deleteAllBtn"><img src="./images/icons/delete.png" alt="Delete All"></button>
         </div>
-      </section>
-      <section>
+      </div>
+      <div>
         <ol id="contactsList">
           
            <!-- Contacts will appear here -->
 
         </ol>
-      </section>
-    </article>
+      </div>
+    </div>
 
   </main>
 
@@ -55,17 +55,13 @@
   <div id="info" class="popUp">
     <div class="preContent">
       <div class="popUp-content">
-        <button id="close">×</button>
+        <button class="close">×</button>
         <h2>Info</h2>
         <div class="content">
           <div class="picDiv">
-            <img src="">
+            <img src="about:blank" alt="">
           </div>
           <div class="text">
-            <p>Name: </p>
-            <p>Age: </p>
-            <p>Telephone: </p>
-            <p>Address: </p>
           </div>
         </div>
       </div>
@@ -76,26 +72,34 @@
   <div id="edit" class="popUp">
     <div class="preContent">
       <div class="popUp-content">
-        <button id="close">×</button>
+        <button class="close">×</button>
         <h2>Edit</h2>
         <form class="contacts-form">
-            <label>Name: </label>
-            <input type="text">
-            
-            <label>Age: </label>
-            <input type="text">
-            
-            <label>Telephone: </label>
-            <input type="text">
-            
-            <label>Address: </label>
-            <input type="text">
+            <div>
+              <label>Name: <span style="color: red;">*</span></label>
+              <input type="text" id="editName" class="name">
+            </div>
+            <div>
+              <label>Telephone: <span style="color: red;">*</span></label>
+              <input type="text" id="editPhone" class="phone">
+            </div>
+            <div>
+              <label>Age: </label>
+              <input type="text" id="editAge" class="age">
+            </div>
+            <div>
+              <label>Address: </label>
+              <input type="text" id="editAddress" class="address">
+            </div>
+            <div>
+              <label>Image URL: </label>
+              <input type="text" id="editPic" class="pic">
+            </div>
 
-            <label>Image URL: </label>
-            <input type="text">
+            <p id="editError" style="color: red;"><!-- Error Msg --></p>
 
             <button class="submit-button">Save</button>
-        </form>
+          </form>
       </div>
     </div>
   </div>
@@ -104,7 +108,7 @@
     <div id="add" class="popUp">
       <div class="preContent">
         <div class="popUp-content">
-          <button id="close">×</button>
+          <button class="close">×</button>
           <h2>Add Person</h2>
           <form class="contacts-form">
             <div>

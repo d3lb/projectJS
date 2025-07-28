@@ -32,7 +32,7 @@ main {
   display: flex;
   justify-content: center;
 }
-article {
+#main {
   padding: 10px;
   height: 100%;
   width: 65%;
@@ -274,7 +274,7 @@ footer {
   margin: 10px;
 }
 
-#close {
+.close {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -285,7 +285,7 @@ footer {
   font-size: 20px;
 }
 
-#close:hover {
+.close:hover {
   background: linear-gradient(45deg, #4b0900dc, #2e0000);
   color: red;
 }
