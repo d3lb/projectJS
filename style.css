@@ -214,6 +214,9 @@ footer {
 .phone{
   width: 200px;
 }
+.email{
+  width: 280px;
+}
 .address{
   width: 200px;
 }
@@ -295,7 +298,7 @@ footer {
   flex-direction: row;
 }
 .picDiv img{
-  width: 150px;
+  width: 200px;
   border: 2px solid #252525;
   border-radius: 5px;
 }

@@ -6,6 +6,7 @@ const contacts = [
         name: 'Bob',
         age: 5,
         phone: '0552342354',
+        email: 'bob@gmail.com',
         address: 'The Streets',
         pic: './images/profilePics/gentelman-cat.png'
     },
@@ -14,6 +15,7 @@ const contacts = [
         name: 'Jonathan',
         age: 21,
         phone: '0532598312',
+        email: 'Jon@hotmail.com',
         address: 'Haifa',
         pic: ''
     },
@@ -21,7 +23,8 @@ const contacts = [
         id: 3,
         name: 'The Undertaker',
         age: 60,
-        phone: '2033521037',
+        phone: '0533521037',
+        email: 'official@undertaker.com',
         address: 'Texas, America',
         pic: './images/profilePics/undertaker.jpg'
     }
@@ -99,6 +102,7 @@ document.querySelector('#add .submit-button').addEventListener('click', function
   const nameInput = document.getElementById('addName');
   const ageInput = document.getElementById('addAge');
   const phoneInput = document.getElementById('addPhone');
+  const emailInput = document.getElementById('addEmail');
   const addressInput = document.getElementById('addAddress');
   const picInput = document.getElementById('addPic');
   const error = document.getElementById('addError');
@@ -106,6 +110,7 @@ document.querySelector('#add .submit-button').addEventListener('click', function
   const name = nameInput.value.trim();
   const age = ageInput.value.trim() ? parseInt(ageInput.value.trim(), 10) : undefined;
   const phone = phoneInput.value.trim();
+  const email = emailInput.value.trim().toLowerCase();
   const address = addressInput.value.trim();
   const pic = picInput.value.trim();
 
@@ -116,9 +121,27 @@ document.querySelector('#add .submit-button').addEventListener('click', function
       return;
   }
 
-  if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-      error.textContent = 'A contact with this name already exists.';
+  const nameValidation = isValidName(name);
+  if (!nameValidation.valid) {
+      error.textContent = nameValidation.message;
       return;
+  }
+
+  const emailValidation = isValidEmail(email);
+  if(!emailValidation.valid){
+    error.textContent = emailValidation.message;
+    return;
+  }
+
+  const phoneValidation = isValidPhone(phone);
+  if(!phoneValidation.valid){
+    error.textContent = phoneValidation.message;
+    return;
+  }
+
+  if(!isValidAge(age)){
+    error.textContent = 'Invalid Age! Must be 1 - 120';
+    return;
   }
 
   contacts.push({
@@ -126,6 +149,7 @@ document.querySelector('#add .submit-button').addEventListener('click', function
     name,
     age,
     phone,
+    email,
     address,
     pic
   });
@@ -133,6 +157,7 @@ document.querySelector('#add .submit-button').addEventListener('click', function
   nameInput.value = '';
   ageInput.value = '';
   phoneInput.value = '';
+  emailInput.value = '';
   addressInput.value = '';
   picInput.value = '';
   error.textContent = '';
@@ -181,6 +206,12 @@ function openInfoModal(contact) {
     textContainer.appendChild(p);
   }
 
+  if (hasValue(contact.email)) {
+    const p = document.createElement('p');
+    p.textContent = `Email: ${contact.email}`;
+    textContainer.appendChild(p);
+  }
+
   if (hasValue(contact.address)) {
       const p = document.createElement('p');
       p.textContent = `Address: ${contact.address}`;
@@ -213,6 +244,7 @@ document.getElementById('contactsList').addEventListener('click', function (e) {
             document.getElementById('editName').value = contact.name;
             document.getElementById('editAge').value = contact.age || '';
             document.getElementById('editPhone').value = contact.phone;
+            document.getElementById('editEmail').value = contact.email;
             document.getElementById('editAddress').value = contact.address;
             document.getElementById('editPic').value = contact.pic;
 
@@ -227,6 +259,7 @@ document.querySelector('#edit .submit-button').addEventListener('click', functio
   const nameInput = document.getElementById('editName');
   const ageInput = document.getElementById('editAge');
   const phoneInput = document.getElementById('editPhone');
+  const emailInput = document.getElementById('editEmail');
   const addressInput = document.getElementById('editAddress');
   const picInput = document.getElementById('editPic');
   const error = document.getElementById('editError');
@@ -234,6 +267,7 @@ document.querySelector('#edit .submit-button').addEventListener('click', functio
   const name = nameInput.value.trim();
   const age = ageInput.value.trim() ? parseInt(ageInput.value.trim(), 10) : undefined;
   const phone = phoneInput.value.trim();
+  const email = emailInput.value.trim().toLowerCase();
   const address = addressInput.value.trim();
   const pic = picInput.value.trim();
 
@@ -244,8 +278,26 @@ document.querySelector('#edit .submit-button').addEventListener('click', functio
       return;
   }
 
-  if (contacts.some((contact) => contact.id !== editId && contact.name.toLowerCase() === name.toLowerCase())) {
-    error.textContent = 'A contact with this name already exists.';
+  const nameValidation = isValidName(name, editId);
+  if (!nameValidation.valid) {
+    error.textContent = nameValidation.message;
+    return;
+  }
+
+  const emailValidation = isValidEmail(email, editId);
+  if(!emailValidation.valid){
+    error.textContent = emailValidation.message;
+    return;
+  }
+
+  const phoneValidation = isValidPhone(phone, editId);
+  if(!phoneValidation.valid){
+    error.textContent = phoneValidation.message;
+    return;
+  }
+
+  if(!isValidAge(age)){
+    error.textContent = 'Invalid Age! Must be 1 - 120';
     return;
   }
 
@@ -260,6 +312,7 @@ document.querySelector('#edit .submit-button').addEventListener('click', functio
     name,
     age,
     phone,
+    email,
     address,
     pic
   };
@@ -267,6 +320,7 @@ document.querySelector('#edit .submit-button').addEventListener('click', functio
   nameInput.value = '';
   ageInput.value = '';
   phoneInput.value = '';
+  emailInput.value = '';
   addressInput.value = '';
   picInput.value = '';
   error.textContent = '';
@@ -304,6 +358,99 @@ document.getElementById('contactsList').addEventListener('click', function (e) {
 function hasValue(val) {
   return val !== undefined && val !== null && String(val).trim() !== '';
 }
+
+// Name Validation
+function isValidName(name, currentId = null){
+  const nameRegex = /^[A-Za-z\s]+$/; // only letters or spaces
+
+  if (!nameRegex.test(name)) {
+    return {
+      valid: false,
+      message: 'Name must contain only letters and spaces.'
+    };
+  }
+
+  // Not same user name
+  const nameExists = contacts.some(contact =>
+    contact.name.toLowerCase() === name.toLowerCase() &&
+    contact.id !== currentId
+  );
+
+  if (nameExists) {
+    return { 
+      valid: false, 
+      message: 'A contact with this name already exists.' 
+    };
+  }
+
+  return { valid: true };
+}
+
+// Email Validation
+function isValidEmail(email, currentId = null) {
+  if (!email || email.trim() === '') {
+    return { valid: true };
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // "????@???.???"
+
+  if (!emailRegex.test(email)){
+    return {
+      valid: false,
+      message: 'Invalid Email!'
+    }
+  }
+
+  const emailExists = contacts.some(contact =>
+  contact.email?.toLowerCase() === email.toLowerCase() &&
+  contact.id !== currentId
+  );
+
+  if (emailExists) {
+    return {
+        valid: false,
+        message: 'A contact with this Email address already exists.'
+      }
+  }
+
+  return { valid: true };
+}
+
+
+function isValidPhone(phone, currentId = null) {
+  const phoneRegex = /^05\d{8}$/;
+
+  if (!phoneRegex.test(phone)) {
+    return {
+      valid: false,
+      message: 'Phone must start with 05 and be exactly 10 digits.'
+    };
+  }
+
+  const phoneExists = contacts.some(contact =>
+    contact.phone === phone && contact.id !== currentId
+  );
+
+  if (phoneExists) {
+    return {
+      valid: false,
+      message: 'A contact with this phone number already exists.'
+    };
+  }
+
+  return { valid: true };
+}
+
+
+// Age Validation
+function isValidAge(age) {
+  if (age === undefined || age === null) {
+    return true; 
+  }
+
+  return typeof age === 'number' && age > 0 && age < 121;
+}
+
 
 // Close when clicking outside Modal or on the X button
 document.querySelectorAll('.popUp').forEach(modal => {
