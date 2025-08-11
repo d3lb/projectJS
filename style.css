@@ -17,7 +17,7 @@ body {
 
 body {
   font-family: 'noto';
-  color: #E0E0E0;
+  color: #e0e0e0;
   background-color: #1d1f20;
 }
 header {
@@ -41,9 +41,9 @@ main {
   background-color: #292d30;
 }
 
-#top{
-    display: flex;
-    justify-content: space-between;
+#top {
+  display: flex;
+  justify-content: space-between;
 }
 #searchBar {
   border: 1px #333 solid;
@@ -80,11 +80,11 @@ main {
   width: 17px;
 }
 
-.main-buttons{
+.main-buttons {
   padding: 20px;
 }
 
-.main-buttons button { 
+.main-buttons button {
   background: none;
   border: none;
   margin-left: 5px;
@@ -94,7 +94,6 @@ main {
   width: 25px;
 }
 
-
 ol,
 ul,
 li {
@@ -103,7 +102,7 @@ li {
   list-style: none;
   padding-top: 20px;
 }
-#contactsList{
+#contactsList {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 10px;
@@ -129,7 +128,7 @@ li {
   border-radius: 50%;
   border: 2px #ccc solid;
 }
-.contacts-text{
+.contacts-text {
   padding-left: 10px;
 }
 
@@ -147,7 +146,7 @@ footer {
   display: flex;
   justify-content: center;
   font-size: 15px;
-  color: #A0A0A0;
+  color: #a0a0a0;
 }
 
 /* Buttons effects */
@@ -164,9 +163,6 @@ footer {
   transform: scale(0.9);
 }
 
-
-
-
 /*- Modals -*/
 #info {
   display: none;
@@ -179,7 +175,6 @@ footer {
 #add {
   display: none;
 }
-
 
 .contacts-form {
   display: flex;
@@ -205,26 +200,26 @@ footer {
   border-radius: 4px;
   margin-left: 30px;
 }
-.name{
+.name {
   width: 200px;
 }
-.age{
+.age {
   width: 50px;
 }
-.phone{
+.phone {
   width: 200px;
 }
-.email{
+.email {
   width: 280px;
 }
-.address{
+.address {
   width: 200px;
 }
-.pic{
+.pic {
   width: 280px;
 }
 
-.submit-button{
+.submit-button {
   margin: auto;
   padding: 10px 30px;
   width: 200px;
@@ -238,7 +233,6 @@ footer {
 .submit-button:hover {
   background: linear-gradient(45deg, #2575fc, #6a11cb);
 }
-
 
 .popUp {
   display: flex;
@@ -271,9 +265,7 @@ footer {
   width: 500px;
 }
 
-
-
-.popUp-content h2 p{
+.popUp-content h2 p {
   margin: 10px;
 }
 
@@ -293,15 +285,20 @@ footer {
   color: red;
 }
 
-.content{
+.content {
   display: flex;
   flex-direction: row;
 }
-.picDiv img{
+.picDiv img {
   width: 200px;
   border: 2px solid #252525;
   border-radius: 5px;
 }
-.text{
+.text {
   padding-left: 25px;
+}
+
+.contacts:hover{
+  background-color: #42484b;
+  border-radius: 10px;
 }
